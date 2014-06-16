@@ -31,26 +31,19 @@ package com.godpaper.as3.BigML.mvc.consts
 		public var PARAMS:Object;
 		public var CONTENT_TYPE:String = "application/json; charset=UTF-8";
 		//
+		public static const BIGML_USERNAME:String = "yangboz";
+		public static const BIGML_API_KEY:String = "0b463ec129ff48a5406e1206b43a151deb463021";
+		//
 		public var RESTFUL:String;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const NEO4J_URI:String = "http://localhost:7474/";
-		//Neo4j RESTful API resource list
-//		public static const STATUS_CODE:String = NEO4J_URI.concat("");
-//		public static const SERVICE_ROOT:String = NEO4J_URI.concat("");
-//		public static const PROPERTY_VALUES:String = NEO4J_URI.concat("");
-//		public static const NODES:String = NEO4J_URI.concat("");
-		public static const NODES:BigMLConstants = new BigMLConstants(NEO4J_URI.concat("db/data/node"),BigMLConstants.GET);
-//		public static const RELATIONSHIPS:String = NEO4J_URI.concat("");
-//		public static const RELATIONSHIP_TYPES:String = NEO4J_URI.concat("");
-//		public static const NODE_PROPERTIES:String = NEO4J_URI.concat("");
-//		public static const RELATIONSHIP_PROPERTIES:String = NEO4J_URI.concat("");
-//		public static const INDEXING:String = NEO4J_URI.concat("");
-//		public static const CONSTRAINTS:String = NEO4J_URI.concat("");
-//		public static const TRAVERSALS:String = NEO4J_URI.concat("");
-//		public static const GRAPH_ALGORITHMS:String = NEO4J_URI.concat("");
-//		public static const BATCH_OPERATIONS:String = NEO4J_URI.concat("");
+		public static const BIGML_URI:String = "https://bigml.io/";
+		public static const BIGML_VERSION:String = "andromeda/";
+		//BigML RESTful API resource list
+
+		public static const SOURCE:BigMLConstants = new BigMLConstants(BIGML_URI.concat(BIGML_VERSION,"source/"),BigMLConstants.GET);
+
 		//CRUD operation.
 		public static const GET:String = "GET";
 		public static const POST:String = "POST";
@@ -80,6 +73,8 @@ package com.godpaper.as3.BigML.mvc.consts
 			super();
 			//
 			this.URL = url;
+			//Append default username,api_key
+			this.URL = this.URL.concat("?username=",BIGML_USERNAME,";api_key=",BIGML_API_KEY);
 			this.RESTFUL = restful;
 			this.QUERY = query;
 			this.PARAMS = params;

@@ -21,13 +21,13 @@ package
 	
 	
 	/**
-	 * Neo4jAS3.as class. -It is a APIs(Node/Property/Label/Relationship...) CRUD operation testing stub.
+	 * BigMLAS3.as class. -It is a APIs(Source/Dataset/Model/Prediction...) operation testing stub.
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
 	 * Created Feb 18, 2014 10:58:20 AM
-	 * @history 12/30/13,
+	 * @history 06/16/14,
 	 */ 
 	public class BigMLAS3 extends Sprite
 	{ 

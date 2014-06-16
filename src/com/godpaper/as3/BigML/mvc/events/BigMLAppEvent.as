@@ -31,7 +31,7 @@ package com.godpaper.as3.BigML.mvc.events
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const API_CALL:String = "Neo4j_API_CALL";
+		public static const API_CALL:String = "BigML_API_CALL";
 		//--------------------------------------------------------------------------
 		//
 		// Public properties

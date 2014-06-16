@@ -10,7 +10,7 @@ package com.godpaper.as3.BigML.core
 	
 	
 	/**
-	 * Neo4jStatus.as class. 
+	 * BigMLStatus.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+

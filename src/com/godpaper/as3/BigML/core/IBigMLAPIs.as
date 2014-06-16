@@ -8,7 +8,7 @@ package com.godpaper.as3.BigML.core
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * INeo4jAPIs.as class. 
+	 * IBigMLAPIs.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+

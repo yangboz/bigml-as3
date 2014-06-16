@@ -26,13 +26,13 @@ package com.godpaper.as3.BigML.mvc.service
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * Neo4jService.as class. 
+	 * BigMLService.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
 	 * Created Feb 18, 2014 3:47:52 PM
-	 * @history 12/30/13,
+	 * @history 06/16/13,
 	 */ 
 	public class BigMLService implements IBigMLService
 	{ 
@@ -74,7 +74,7 @@ package com.godpaper.as3.BigML.mvc.service
 		}
 		/**
 		 * This function handle the RESTful APIs call subroutines.
-		 * @param param Neo4jConstants
+		 * @param param BigMLConstants
 		 */		
 		public function callAPI(param:BigMLConstants):void
 		{
@@ -109,7 +109,7 @@ package com.godpaper.as3.BigML.mvc.service
 				var errorMessage:String = event.text;
 				LOG.info("httpclient onError:{0}",event);
 			}; 
-			LOG.debug("Prompt to Neo4j Restful API!!!");
+			LOG.debug("Prompt to BigML Restful API!!!");
 			//RESTful handler here.
 			switch(param.RESTFUL)
 			{
@@ -118,7 +118,7 @@ package com.godpaper.as3.BigML.mvc.service
 					break;
 				case BigMLConstants.POST:
 					if(null == param.PARAMS){
-						throw new Error("Cannot POSTing without parameters to Neo4j REST API.");
+						throw new Error("Cannot POSTing without parameters to BigML REST API.");
 					}
 					this.client.post(this.uri,param.PARAMS,param.CONTENT_TYPE);
 					break;

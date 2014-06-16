@@ -64,7 +64,7 @@ package com.godpaper.as3.BigML.mvc.view
 			super();
 			//Label
 			this._textField_label = new TextField();
-			this._textField_label.text = "Neo4j REST API:";
+			this._textField_label.text = "BigML REST API:";
 			this._textField_label.selectable = false;
 			this._textField_label.x = 10;
 			this._textField_label.width = 100;
@@ -72,7 +72,7 @@ package com.godpaper.as3.BigML.mvc.view
 			this.addChild(this._textField_label);
 			//TextInput
 			this._textField_url = new TextField();
-			this._textField_url.text = "db/data/node";
+			this._textField_url.text = "source/4f510d2003ce895676000069";
 			this._textField_url.border = true;
 			this._textField_url.type = TextFieldType.INPUT;
 			this._textField_url.x = 120;
@@ -110,8 +110,9 @@ package com.godpaper.as3.BigML.mvc.view
 //			var NODES_get:Neo4jConstants = new Neo4jConstants(Neo4jConstants.NEO4J_URI.concat("db/data/node"),Neo4jConstants.GET);
 //			this.dispatchEvent(new Neo4jAppEvent(Neo4jAppEvent.API_CALL,NODES_get));
 			var dummyObj:Object = {"foo":"bar"};
-			var NODES_post:BigMLConstants = new BigMLConstants(BigMLConstants.NEO4J_URI.concat(this._textField_url.text),BigMLConstants.POST,"",dummyObj);
-			this.dispatchEvent(new BigMLAppEvent(BigMLAppEvent.API_CALL,NODES_post));
+			var queryStr:String = "";
+			var SOURCE_post:BigMLConstants = new BigMLConstants(BigMLConstants.BIGML_URI.concat(BigMLConstants.BIGML_VERSION,this._textField_url.text),BigMLConstants.GET,queryStr,dummyObj);
+			this.dispatchEvent(new BigMLAppEvent(BigMLAppEvent.API_CALL,SOURCE_post));
 		}
 		//--------------------------------------------------------------------------
 		//
