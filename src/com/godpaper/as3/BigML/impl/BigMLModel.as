@@ -1,25 +1,23 @@
 
-package com.godpaper.as3.BigML.mvc.model
+package com.godpaper.as3.BigML.impl
 {
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.godpaper.as3.BigML.mvc.base.ActorBase;
-	import com.godpaper.as3.BigML.mvc.events.BigMLAppEvent;
-	
 	
 	/**
 	 * BigMLModel.as class. 
+	 * A model is created using a dataset as input, selecting which fields to use as input and which field will be the objective
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Feb 18, 2014 3:42:56 PM
+	 * Created Jun 24, 2014 10:11:55 AM
 	 * @history 12/30/13,
 	 */ 
-	public class BigMLModel extends ActorBase
+	public class BigMLModel extends BigMLObject
 	{ 
 		//--------------------------------------------------------------------------
 		//
@@ -52,9 +50,8 @@ package com.godpaper.as3.BigML.mvc.model
 		//--------------------------------------------------------------------------
 		public function BigMLModel()
 		{
+			//TODO: implement function
 			super();
-			//for testing...
-//			this.dispatch(new Neo4jAppEvent(
 		} 
 		//--------------------------------------------------------------------------
 		//

@@ -43,5 +43,7 @@ package com.godpaper.as3.BigML.core
 		function toJsonObject():IBigMLObject;
 		//
 		function toJsonString():String;
+		//
+		function pprint(target:Object):void;
 	}
 }

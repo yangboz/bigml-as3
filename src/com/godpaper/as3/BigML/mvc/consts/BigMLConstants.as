@@ -38,7 +38,7 @@ package com.godpaper.as3.BigML.mvc.consts
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const BIGML_URI:String = "https://bigml.io/";
+		public static const BIGML_URI:String = "http://bigml.io/";
 		public static const BIGML_VERSION:String = "andromeda/";
 		//BigML RESTful API resource list
 

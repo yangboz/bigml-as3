@@ -1,25 +1,23 @@
 
-package com.godpaper.as3.BigML.mvc.model
+package com.godpaper.as3.BigML.impl
 {
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.godpaper.as3.BigML.mvc.base.ActorBase;
-	import com.godpaper.as3.BigML.mvc.events.BigMLAppEvent;
-	
 	
 	/**
-	 * BigMLModel.as class. 
+	 * BigMLPrediction.as class. 
+	 * A prediction is created using a model and the new instance that you want to classify as input
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Feb 18, 2014 3:42:56 PM
+	 * Created Jun 24, 2014 10:12:34 AM
 	 * @history 12/30/13,
 	 */ 
-	public class BigMLModel extends ActorBase
+	public class BigMLPrediction extends BigMLObject
 	{ 
 		//--------------------------------------------------------------------------
 		//
@@ -50,11 +48,10 @@ package com.godpaper.as3.BigML.mvc.model
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function BigMLModel()
+		public function BigMLPrediction()
 		{
+			//TODO: implement function
 			super();
-			//for testing...
-//			this.dispatch(new Neo4jAppEvent(
 		} 
 		//--------------------------------------------------------------------------
 		//

@@ -13,7 +13,7 @@ package com.godpaper.as3.BigML.impl
 	import mx.utils.ObjectUtil;
 	
 	/**
-	 * Neo4jObject.as class. -abstracted prototype for Neo4j.
+	 * BigMLObject.as class. -abstracted prototype for BigML.
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
@@ -56,6 +56,11 @@ package com.godpaper.as3.BigML.impl
 		{
 			//TODO: implement function
 		}
+		//--------------------------------------------------------------------------
+		//
+		// Public methods
+		//
+		//--------------------------------------------------------------------------
 		/**
 		 * 
 		 * @return AS3 String
@@ -85,12 +90,15 @@ package com.godpaper.as3.BigML.impl
 			var coder:JSONEncoder = new JSONEncoder(this.toString());
 			return coder.getString();
 		} 
-		//--------------------------------------------------------------------------
-		//
-		// Public methods
-		//
-		//--------------------------------------------------------------------------
-		
+		/**
+		 * 
+		 * @param target trace-able object.
+		 * 
+		 */		
+		public function pprint(target:Object):void
+		{
+			trace(ObjectUtil.toString(target));
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods

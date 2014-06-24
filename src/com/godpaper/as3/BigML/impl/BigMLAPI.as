@@ -1,32 +1,33 @@
 
-package com.godpaper.as3.BigML.mvc.model
+package com.godpaper.as3.BigML.impl
 {
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.godpaper.as3.BigML.mvc.base.ActorBase;
-	import com.godpaper.as3.BigML.mvc.events.BigMLAppEvent;
+	import com.godpaper.as3.BigML.core.IBigMLAPI;
 	
 	
 	/**
-	 * BigMLModel.as class. 
+	 * BigMLAPI.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Feb 18, 2014 3:42:56 PM
+	 * Created Jun 24, 2014 10:24:06 AM
 	 * @history 12/30/13,
 	 */ 
-	public class BigMLModel extends ActorBase
+	public class BigMLAPI extends BigMLObject implements IBigMLAPI
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		
+		private var userName:String;
+		private var apiKey:String;
+		private var devMode:Boolean;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -50,11 +51,37 @@ package com.godpaper.as3.BigML.mvc.model
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function BigMLModel()
+		public function BigMLAPI(userName:String,apiKey:String,devMode:Boolean=false)
 		{
 			super();
-			//for testing...
-//			this.dispatch(new Neo4jAppEvent(
+			//Accept the parameters.
+			this.userName = userName;
+			this.apiKey = apiKey;
+			this.devMode = devMode;
+		}
+		
+		public function create_source(url:String):BigMLSource
+		{
+			//TODO: implement function
+			return null;
+		}
+		
+		public function create_dataset(source:BigMLSource):BigMLDataSet
+		{
+			//TODO: implement function
+			return null;
+		}
+		
+		public function create_model(dataset:BigMLDataSet):BigMLModel
+		{
+			//TODO: implement function
+			return null;
+		}
+		
+		public function create_prediction(model:BigMLModel, param:Object):BigMLPrediction
+		{
+			//TODO: implement function
+			return null;
 		} 
 		//--------------------------------------------------------------------------
 		//

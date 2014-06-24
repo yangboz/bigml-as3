@@ -1,25 +1,23 @@
 
-package com.godpaper.as3.BigML.mvc.model
+package com.godpaper.as3.BigML.impl
 {
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.godpaper.as3.BigML.mvc.base.ActorBase;
-	import com.godpaper.as3.BigML.mvc.events.BigMLAppEvent;
-	
 	
 	/**
-	 * BigMLModel.as class. 
+	 * BigMLSource.as class.
+	 * A source is a file containing the raw data that you want to use to create a predictive model 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Feb 18, 2014 3:42:56 PM
+	 * Created Jun 24, 2014 10:10:26 AM
 	 * @history 12/30/13,
 	 */ 
-	public class BigMLModel extends ActorBase
+	public class BigMLSource extends BigMLObject
 	{ 
 		//--------------------------------------------------------------------------
 		//
@@ -50,11 +48,10 @@ package com.godpaper.as3.BigML.mvc.model
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function BigMLModel()
+		public function BigMLSource()
 		{
+			//TODO: implement function
 			super();
-			//for testing...
-//			this.dispatch(new Neo4jAppEvent(
 		} 
 		//--------------------------------------------------------------------------
 		//

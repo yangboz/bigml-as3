@@ -9,6 +9,7 @@ package com.godpaper.as3.BigML.mvc.service
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import flash.events.ErrorEvent;
+	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 	import flash.utils.ByteArray;
 	
@@ -109,7 +110,7 @@ package com.godpaper.as3.BigML.mvc.service
 				var errorMessage:String = event.text;
 				LOG.info("httpclient onError:{0}",event);
 			}; 
-			LOG.debug("Prompt to BigML Restful API!!!");
+			LOG.info("Prompt to BigML Restful API path: {0}",param.URL);
 			//RESTful handler here.
 			switch(param.RESTFUL)
 			{
