@@ -1,33 +1,37 @@
 
-package com.godpaper.as3.BigML.impl
+package
 {
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.godpaper.as3.BigML.core.IBigMLAPI;
+	import Array;
+	
+	import flash.display.Sprite;
+	
+	import flexUnitTests.BigMLAPITest;
+	
+	import flexunit.flexui.FlexUnitTestRunnerUIAS;
 	
 	
 	/**
-	 * BigMLAPI.as class. 
+	 * FlexUnitApplication.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Jun 24, 2014 10:24:06 AM
+	 * Created Jul 17, 2014 3:53:13 PM
 	 * @history 12/30/13,
 	 */ 
-	public class BigMLAPI extends BigMLObject implements IBigMLAPI
+	public class FlexUnitApplication extends Sprite
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		private var userName:String;
-		private var apiKey:String;
-		private var devMode:Boolean;
+		
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -51,37 +55,24 @@ package com.godpaper.as3.BigML.impl
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function BigMLAPI(userName:String,apiKey:String,devMode:Boolean=false)
+		public function FlexUnitApplication()
 		{
-			super();
-			//Accept the parameters.
-			this.userName = userName;
-			this.apiKey = apiKey;
-			this.devMode = devMode;
+			onCreationComplete();
 		}
 		
-		public function create_source(url:String):BigMLSource
+		private function onCreationComplete():void
 		{
-			var bigmlSource:BigMLSource = new BigMLSource();
-			return bigmlSource;
+			var testRunner:FlexUnitTestRunnerUIAS=new FlexUnitTestRunnerUIAS();
+			testRunner.portNumber=8765; 
+			this.addChild(testRunner); 
+			testRunner.runWithFlexUnit4Runner(currentRunTestSuite(), "bigml-as3");
 		}
 		
-		public function create_dataset(source:BigMLSource):BigMLDataSet
+		public function currentRunTestSuite():Array
 		{
-			//TODO: implement function
-			return null;
-		}
-		
-		public function create_model(dataset:BigMLDataSet):BigMLModel
-		{
-			//TODO: implement function
-			return null;
-		}
-		
-		public function create_prediction(model:BigMLModel, param:Object):BigMLPrediction
-		{
-			//TODO: implement function
-			return null;
+			var testsToRun:Array = new Array();
+			testsToRun.push(flexUnitTests.BigMLAPITest);
+			return testsToRun;
 		} 
 		//--------------------------------------------------------------------------
 		//

@@ -11,6 +11,7 @@ package com.godpaper.as3.BigML.mvc.service
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
+	import flash.system.Security;
 	import flash.utils.ByteArray;
 	
 	import mx.logging.ILogger;
@@ -79,6 +80,8 @@ package com.godpaper.as3.BigML.mvc.service
 		 */		
 		public function callAPI(param:BigMLConstants):void
 		{
+			Security.allowDomain("*");
+			//
 			this.uri = new URI(param.URL);
 			this.client = new HttpClient(uri);
 			//
