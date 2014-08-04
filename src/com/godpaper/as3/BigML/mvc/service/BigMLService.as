@@ -1,6 +1,8 @@
 
 package com.godpaper.as3.BigML.mvc.service
 {
+	import avmplus.FLASH10_FLAGS;
+	
 	import com.adobe.net.URI;
 	import com.godpaper.as3.BigML.impl.BigMLResponse;
 	import com.godpaper.as3.BigML.mixin.Neo4jResponseNode;
@@ -12,6 +14,7 @@ package com.godpaper.as3.BigML.mvc.service
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 	import flash.system.Security;
+	import flash.ui.Mouse;
 	import flash.utils.ByteArray;
 	
 	import mx.logging.ILogger;
@@ -20,6 +23,8 @@ package com.godpaper.as3.BigML.mvc.service
 	import org.httpclient.events.HttpDataEvent;
 	import org.httpclient.events.HttpResponseEvent;
 	import org.httpclient.events.HttpStatusEvent;
+	
+	import pl.mateuszmackowiak.visuals.CursorManager;
 	
 	//--------------------------------------------------------------------------
 	//
@@ -81,13 +86,15 @@ package com.godpaper.as3.BigML.mvc.service
 		public function callAPI(param:BigMLConstants):void
 		{
 			Security.allowDomain("*");
+			Security.allowInsecureDomain("*");
+			Security.loadPolicyFile("https://bigml.io/crossdomain.xml");
 			//
 			this.uri = new URI(param.URL);
 			this.client = new HttpClient(uri);
 			//
 			client.listener.onStatus = function(event:HttpStatusEvent):void {
 				// Notified of response (with headers but not content)
-				LOG.info("httpclient onStatus:{0}",event.code);
+				trace("httpclient onStatus:{0}",event.code);
 			};
 			
 			client.listener.onData = function(event:HttpDataEvent):void {
@@ -97,23 +104,25 @@ package com.godpaper.as3.BigML.mvc.service
 				// For data
 				var data:ByteArray = event.bytes;    
 				//
-				LOG.info("httpclient onData:{0}",data.toString());
+				trace("httpclient onData:{0}",data.toString());
 				//JSON object mapper testing here.
 				BigMLUtil.objectMapper.registerMixin(BigMLResponse,Neo4jResponseNode);
 				var response:BigMLResponse = BigMLUtil.objectMapper.readObject(BigMLResponse,data.toString()) as BigMLResponse;
-				LOG.info("httpclient onData->response:{0}",response.toString());
+				trace("httpclient onData->response:{0}",response.toString());
 			};
 			
 			client.listener.onComplete = function(event:HttpResponseEvent):void {
 				// Notified when complete (after status and data)
-				LOG.info("httpclient onComplete:{0}",event.response);
+				trace("httpclient onComplete:{0}",event.response);
+				CursorManager.removeBusyCursor();
 			};
 			
 			client.listener.onError = function(event:ErrorEvent):void {
 				var errorMessage:String = event.text;
-				LOG.info("httpclient onError:{0}",event);
+				trace("httpclient onError:{0}",event);
+				CursorManager.removeBusyCursor();
 			}; 
-			LOG.info("Prompt to BigML Restful API path: {0}",param.URL);
+			trace("Prompt to BigML Restful API path: {0}",param.URL);
 			//RESTful handler here.
 			switch(param.RESTFUL)
 			{
@@ -135,9 +144,10 @@ package com.godpaper.as3.BigML.mvc.service
 				default:
 					break;
 			}
+			
 			//dispatch event
 //			eventDispatcher.dispatchEvent(
-			
+			CursorManager.setBusyCursor();
 		} 
 		//--------------------------------------------------------------------------
 		//

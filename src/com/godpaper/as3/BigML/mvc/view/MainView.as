@@ -81,17 +81,26 @@ package com.godpaper.as3.BigML.mvc.view
 			this._textField_url.setTextFormat(new TextFormat(null,12,0x0000ff,true,true,true,null));
 			this.addChild(this._textField_url);
 			//TextField Button
+			var textWrapper:Sprite = new Sprite();
 			this._textField_call = new TextField();
 			this._textField_call.text = "CALL";
 			this._textField_call.selectable = false;
 			this._textField_call.border = true;
 			this._textField_call.borderColor = 0xff0000;
-			this._textField_call.x = 330;
 			this._textField_call.width = 40;
 			this._textField_call.height = 20;
 			this._textField_call.setTextFormat(new TextFormat(null,12,0x0000ff,true,true,true,null));
 			this._textField_call.addEventListener(MouseEvent.CLICK,textFieldClickHander);
-			this.addChild(this._textField_call);
+			//
+			textWrapper.buttonMode = true;
+			textWrapper.useHandCursor = true;
+			//
+//			this.addChild(this._textField_call);
+			this.addChild(textWrapper);
+			textWrapper.addChild(this._textField_call);
+			textWrapper.x = 330;
+			textWrapper.width = 40;
+			textWrapper.height = 20;
 		} 
 		
 		//--------------------------------------------------------------------------
