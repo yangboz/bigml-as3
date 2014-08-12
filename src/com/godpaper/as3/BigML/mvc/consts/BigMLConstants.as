@@ -32,13 +32,13 @@ package com.godpaper.as3.BigML.mvc.consts
 		public var CONTENT_TYPE:String = "application/json; charset=UTF-8";
 		//
 		public static const BIGML_USERNAME:String = "yangboz";
-		public static const BIGML_API_KEY:String = "0b463ec129ff48a5406e1206b43a151deb463021";
+		public static const BIGML_API_KEY:String = "5c4f2ce097f02a5916ca59f3b4da8a39737c629d";
 		//
 		public var RESTFUL:String;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const BIGML_URI:String = "http://bigml.io/";
+		public static const BIGML_URI:String = "https://ozone.dev.bigml.io/";
 		public static const BIGML_VERSION:String = "andromeda/";
 		//BigML RESTful API resource list
 
